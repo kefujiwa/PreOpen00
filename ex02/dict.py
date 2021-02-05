@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 00:51:29 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/02/06 00:57:55 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/02/06 01:04:41 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,6 @@ data = [['Caleb' , 24],
 ['Carter' , 54],
 ['Casey' , 2]]
 
-di = {k: v for [v, k] in data}
-for key, value in di.items():
+d = {k: v for [v, k] in data}
+for key, value in d.items():
 	print(f"{key} : {value}")
