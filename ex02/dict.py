@@ -6,27 +6,27 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 00:51:29 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/02/06 01:04:41 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/02/06 22:08:13 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 data = [['Caleb' , 24],
-['Calixte' , 84],
-['Calliste', 65],
-['Calvin' , 12],
-['Cameron' , 54],
-['Camil' , 32],
-['Camille' , 5],
-['Can' , 52],
-['Caner' , 56],
-['Cantin' , 4],
-['Carl' , 1],
-['Carlito' , 23],
-['Carlo' , 19],
-['Carlos' , 26],
-['Carter' , 54],
-['Casey' , 2]]
+        ['Calixte' , 84],
+        ['Calliste', 65],
+        ['Calvin' , 12],
+        ['Cameron' , 54],
+        ['Camil' , 32],
+        ['Camille' , 5],
+        ['Can' , 52],
+        ['Caner' , 56],
+        ['Cantin' , 4],
+        ['Carl' , 1],
+        ['Carlito' , 23],
+        ['Carlo' , 19],
+        ['Carlos' , 26],
+        ['Carter' , 54],
+        ['Casey' , 2]]
 
 d = {k: v for [v, k] in data}
 for key, value in d.items():
-	print(f"{key} : {value}")
+    print(f"{key} : {value}")
