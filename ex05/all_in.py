@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 02:06:02 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/02/07 12:34:29 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/02/07 15:05:48 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ def get_key_from_value(d, val):
     keys = [k for k, v in d.items() if v == val]
     if keys:
         return keys[0]
+
 
 if len(sys.argv) == 2:
     lst = sys.argv[1].split(',')
