@@ -6,41 +6,40 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 02:06:02 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/02/06 19:45:08 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/02/07 12:15:37 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 import sys
 
 states = {
-	"Oregon" : "OR",
-	"Alabama" : "AL",
-	"New Jersey": "NJ",
-	"Colorado" : "CO"
+    "Oregon" : "OR",
+    "Alabama" : "AL",
+    "New Jersey": "NJ",
+    "Colorado" : "CO"
 }
-
 capital_cities = {
-	"OR": "Salem",
-	"AL": "Montgomery",
-	"NJ": "Trenton",
-	"CO": "Denver"
+    "OR": "Salem",
+    "AL": "Montgomery",
+    "NJ": "Trenton",
+    "CO": "Denver"
 }
 
 if len(sys.argv) == 2:
-	lst = sys.argv[1].split(',')
-	for item in lst:
-		item = item.lstrip()
-		flag = 0
-		if not item:
-			continue
-		if item.title() in states:
-			print(f"{capital_cities[states[item.title()]]} is the capital of {item.title()}")
-		else:
-			for city_id, city_name in capital_cities.items():
-				if city_name == item.title():
-					for state_name, state_id in states.items():
-						if state_id == city_id:
-							print(f"{city_name} is the capital of {state_name}")
-							flag = 1
-			if flag == 0:
-				print(f"{item} is neither a capital city nor a state")
+    lst = sys.argv[1].split(',')
+    for item in lst:
+        item = item.lstrip()
+        flag = 0
+        if not item:
+            continue
+        if item.title() in states:
+            print(f"{capital_cities[states[item.title()]]} is the capital of {item.title()}")
+        else:
+            for city_id, city_name in capital_cities.items():
+                if city_name == item.title():
+                    for state_name, state_id in states.items():
+                        if state_id == city_id:
+                            print(f"{city_name} is the capital of {state_name}")
+                            flag = 1
+            if flag == 0:
+                print(f"{item} is neither a capital city nor a state")
