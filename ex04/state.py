@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 01:37:42 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/02/06 01:59:15 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/02/07 12:13:06 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ states = {
 "New Jersey": "NJ",
 "Colorado" : "CO"
 }
-
 capital_cities = {
 "OR": "Salem",
 "AL": "Montgomery",
@@ -26,11 +25,13 @@ capital_cities = {
 "CO": "Denver"
 }
 
+def get_key_from_value(d, val):
+	keys = [k for k, v in d.items() if v == val]
+	if keys:
+		return keys[0]
+
 if len(sys.argv) == 2:
-	for city_id, city_name in capital_cities.items():
-		if city_name == sys.argv[1]:
-			for state_name, state_id in states.items():
-				if state_id == city_id:
-					print(state_name)
-					sys.exit()
-	print("Unknown capital city")
+	ret = get_key_from_value(states, get_key_from_value(capital_cities, sys.argv[1]))
+	if not ret:
+		ret = "Unknown capital city"
+	print(ret)
