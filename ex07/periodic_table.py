@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 13:00:01 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/02/07 14:43:07 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/02/12 21:02:04 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,19 +42,19 @@ def convert_txt_to_dict():
 def write_html(f):
     title = "Periodic Table of the Elements"
     elms = convert_txt_to_dict()
-    f.write('<!DOCTYPE html>\n')
-    f.write('<html lang="en">\n')
-    f.write('<head>\n')
-    f.write('<meta charset="UTF-8"\n')
-    f.write('meta name="viewport" content="width=device-width, initial-scale=1.0">\n')
-    f.write('<title>' + title + '</title>\n')
-    f.write('<link rel="stylesheet" href="periodic_table.css">\n')
-    f.write('</head>\n')
-    f.write('\n')
-    f.write('<body class="container">\n')
-    f.write('<h1 class="title">' + title + '</h1>\n')
-    f.write('<section class="table-container">\n')
-    f.write('<table>\n')
+    f.write('<!DOCTYPE html>\n' \
+            '<html lang="en">\n' \
+            '<head>\n' \
+            '<meta charset="UTF-8"\n' \
+            'meta name="viewport" content="width=device-width, initial-scale=1.0">\n' \
+            '<title>' + title + '</title>\n' \
+            '<link rel="stylesheet" href="periodic_table.css">\n' \
+            '</head>\n' \
+            '\n' \
+            '<body class="container">\n' \
+            '<h1 class="title">' + title + '</h1>\n' \
+            '<section class="table-container">\n' \
+            '<table>\n')
     i = 1
     for row in range(7):
         f.write('<tr>\n')
@@ -65,11 +65,11 @@ def write_html(f):
                 i += 15
                 name = "Lanthanides" if row == 5 else "Actinides"
                 number = "57 - 71" if row == 5 else "89 - 103"
-                f.write('<td class="cell">\n')
-                f.write('<h4 class="name">' + name + '</h4>\n')
-                f.write('<ul>\n')
-                f.write('<li class="number">No.<span class="number-fontsize">' + number + '</span></li>\n')
-                f.write('</ul>\n')
+                f.write('<td class="cell">\n' \
+                        '<h4 class="name">' + name + '</h4>\n' \
+                        '<ul>\n' \
+                        '<li class="number">No.<span class="number-fontsize">' + number + '</span></li>\n' \
+                        '</ul>\n')
             else:
                 for elem in elms:
                     num = int(elms[elem]["number"])
@@ -89,77 +89,77 @@ def write_html(f):
                             color = "green"
                         elif elms[elem]["position"] == "17":
                             color = "orange"
-                        f.write('<td id="' + str(i) + '" class="cell ' + color + '">\n')
-                        f.write('<h4 class="name">' + elem + '</h4>\n')
-                        f.write('<ul>\n')
-                        f.write('<li class="number">No.<span class="number-fontsize">' + elms[elem]["number"] + '</span></li>\n')
-                        f.write('<li class="symbol">' + elms[elem]["small"] + '</li>\n')
-                        f.write('<li class="molar">' + elms[elem]["molar"] + '</li>\n')
-                        f.write('<li class="electron">' + elms[elem]["electron"] + ' electron</li>\n')
-                        f.write('</ul>\n')
+                        f.write('<td id="' + str(i) + '" class="cell ' + color + '">\n' \
+                                '<h4 class="name">' + elem + '</h4>\n' \
+                                '<ul>\n' \
+                                '<li class="number">No.<span class="number-fontsize">' + elms[elem]["number"] + '</span></li>\n' \
+                                '<li class="symbol">' + elms[elem]["small"] + '</li>\n' \
+                                '<li class="molar">' + elms[elem]["molar"] + '</li>\n' \
+                                '<li class="electron">' + elms[elem]["electron"] + ' electron</li>\n' \
+                                '</ul>\n')
                 i += 1
             f.write('</td>\n')
         f.write('</tr>\n')
-    f.write('</table>\n')
-    f.write('</div>\n')
-    f.write('</body>\n')
-    f.write('</html>\n')
+    f.write('</table>\n' \
+            '</div>\n' \
+            '</body>\n' \
+            '</html>\n')
 
 
 def write_css(f):
-    f.write('@charset "UTF-8";\n')
-    f.write('* {')
-    f.write('box-sizing: border-box;')
-    f.write('}\n')
-    f.write('body {')
-    f.write('font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "D    roid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;')
-    f.write(' font-size: 10px;')
-    f.write('}\n')
-    f.write('body, h1, h4, ul, li {')
-    f.write('margin: 0; padding: 0; list-style-type: none;')
-    f.write('}\n')
-    f.write('.title {')
-    f.write('font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; margin: 20px auto; text-align:     center;')
-    f.write('}\n')
-    f.write('table {')
-    f.write('display: flex; width: 1440px; margin: 0 auto;')
-    f.write('}\n')
-    f.write('.cell {')
-    f.write('height: 100px; width: 80px; border: solid 1px #a0a0a0; text-align: center; vertical-align: top;')
-    f.write('}\n')
-    f.write('li {')
-    f.write('padding-top: 2px;')
-    f.write('}\n')
-    f.write('.name {')
-    f.write('border-bottom: dashed 0.2px #666; padding: 3px 0;')
-    f.write('}\n')
-    f.write('.number-fontsize {')
-    f.write('font-size: 1.2em;')
-    f.write('}\n')
-    f.write('.symbol {')
-    f.write('font-size: 3em; padding: 0;')
-    f.write('}\n')
-    f.write('.yellow {')
-    f.write('background: linear-gradient(110deg, rgba(255, 255, 0, 0.2), rgba(255, 255, 0, 0.3));')
-    f.write('}\n')
-    f.write('.red {')
-    f.write('background: linear-gradient(110deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.3));')
-    f.write('}\n')
-    f.write('.purple {')
-    f.write('background: linear-gradient(110deg, rgba(64, 64, 255, 0.2), rgba(64, 64, 255, 0.3));')
-    f.write('}\n')
-    f.write('.blue {')
-    f.write('background: linear-gradient(110deg, rgba(0, 128, 255, 0.2), rgba(0, 128, 255, 0.3));')
-    f.write('}\n')
-    f.write('.moss {')
-    f.write('background: linear-gradient(110deg, rgba(140, 190, 0, 0.2), rgba(140, 190, 0, 0.3));')
-    f.write('}\n')
-    f.write('.green {')
-    f.write('background: linear-gradient(110deg, rgba(0, 255, 0, 0.2), rgba(0, 255, 0, 0.3));')
-    f.write('}\n')
-    f.write('.orange {')
-    f.write('background: linear-gradient(110deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.3));')
-    f.write('}\n')
+    f.write('@charset "UTF-8";\n' \
+            '* {\n' \
+            'box-sizing: border-box;\n' \
+            '}\n' \
+            'body {\n' \
+            'font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;\n' \
+            ' font-size: 10px;\n' \
+            '}\n' \
+            'body, h1, h4, ul, li {\n' \
+            'margin: 0; padding: 0; list-style-type: none;\n' \
+            '}\n' \
+            '.title {\n' \
+            'font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; margin: 20px auto; text-align: center;\n' \
+            '}\n' \
+            'table {\n' \
+            'display: flex; width: 1440px; margin: 0 auto;\n' \
+            '}\n' \
+            '.cell {\n' \
+            'height: 100px; width: 80px; border: solid 1px #a0a0a0; text-align: center; vertical-align: top;\n' \
+            '}\n' \
+            'li {\n' \
+            'padding-top: 2px;\n' \
+            '}\n' \
+            '.name {\n' \
+            'border-bottom: dashed 0.2px #666; padding: 3px 0;\n' \
+            '}\n' \
+            '.number-fontsize {\n' \
+            'font-size: 1.2em;\n' \
+            '}\n' \
+            '.symbol {\n' \
+            'font-size: 3em; padding: 0;\n' \
+            '}\n' \
+            '.yellow {\n' \
+            'background: linear-gradient(110deg, rgba(255, 255, 0, 0.2), rgba(255, 255, 0, 0.3));\n' \
+            '}\n' \
+            '.red {\n' \
+            'background: linear-gradient(110deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.3));\n' \
+            '}\n' \
+            '.purple {\n' \
+            'background: linear-gradient(110deg, rgba(64, 64, 255, 0.2), rgba(64, 64, 255, 0.3));\n' \
+            '}\n' \
+            '.blue {\n' \
+            'background: linear-gradient(110deg, rgba(0, 128, 255, 0.2), rgba(0, 128, 255, 0.3));\n' \
+            '}\n' \
+            '.moss {\n' \
+            'background: linear-gradient(110deg, rgba(140, 190, 0, 0.2), rgba(140, 190, 0, 0.3));\n' \
+            '}\n' \
+            '.green {\n' \
+            'background: linear-gradient(110deg, rgba(0, 255, 0, 0.2), rgba(0, 255, 0, 0.3));\n' \
+            '}\n' \
+            '.orange {\n' \
+            'background: linear-gradient(110deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.3));\n' \
+            '}\n')
 
 
 make_file("periodic_table.html", write_html)
